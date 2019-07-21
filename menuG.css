@@ -1,0 +1,36 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+#menu{
+    margin-top:0px;
+    padding: 15px;
+    padding-bottom:20px;
+    background-color:rgb(116, 76, 25) ; 
+}
+nav ul {
+    overflow:hidden;
+    list-style:none;
+}
+nav ul li {
+    float:left;
+    font-family:serif;
+    font-size:25px;
+    
+}
+.izq{
+    margin-left:10%;
+}
+li{
+    width: calc(80% /6); /* para que se simetricen los submenus */
+    
+} 
+
+a{
+    text-decoration: none;
+    color:rgb(46, 26, 1);
+}
+a:hover{
+    color:#E7C292;
+}
