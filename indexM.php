@@ -58,7 +58,7 @@
         });
         $('.btnDesgloce').on('click',function(){
           var mesa = this.id;
-          window.location.href = "desgloceDeCuenta.php?mesa=" + mesa;
+          window.location.href = "DesgloceDeCuenta.php?mesa=" + mesa;
         });
       });
 
