@@ -26,7 +26,7 @@
             <td > <div id="precios"></div> </td>  
         </tr>
     </table>
-    <button onclick="window.location = 'indexM.php'">volver</button><button>Imprimir</button>
+    <button onclick="window.location = 'indexM.php'">volver</button>
 
     <script>
     var mesero = '<?php echo $misero ?>';

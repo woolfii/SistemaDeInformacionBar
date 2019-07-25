@@ -19,7 +19,7 @@
         <th>cobrar</th>
       </tr>
       <?php //ciclo while con el cual se crea una fila por cada mesa encontrada que coincida con el
-        $sql = "SELECT * from mesas";
+        $sql = "SELECT * from mesas WHERE usuario = '$misero' AND impresa='no' ";
         $result = mysqli_query($conexion,$sql);
         while($mostrar=mysqli_fetch_array($result)){
         ?>
@@ -38,16 +38,13 @@
 
 
     <div id="myModal" class="modal">
-
       <div class="modal-content">
         <span class="close">&times;</span> <br><br>
         <form action="guardarMesa.php" method="POST">
             Nombre de la mesa:<input name="mesa"><br><br>
             <input  type="submit" name="enviar" value="Abrir">
-        </form>
-        
+        </form>  
       </div>
-
     </div>
 
     <script>
@@ -59,6 +56,10 @@
         $('.btnDesgloce').on('click',function(){
           var mesa = this.id;
           window.location.href = "DesgloceDeCuenta.php?mesa=" + mesa;
+        });
+        $('.btnImprimir').on('click',function(){
+          var mesa = this.id;
+          window.location.href = "ImprimirMesa.php?mesa=" + mesa;
         });
       });
 
