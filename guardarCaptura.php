@@ -11,7 +11,4 @@ foreach($datosd->datos as $product) {
 }
 echo json_encode($resultado);
 
-//for ($i=0; $i<count($datosd->datos); $i++ ) {
- //       $producto[$i] = $product;
-  //  }
 ?>

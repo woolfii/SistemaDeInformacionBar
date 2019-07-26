@@ -39,7 +39,7 @@
 
     <div id="myModal" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span> <br><br>
+        <span class="close">&times;</span><br><br>
         <form action="guardarMesa.php" method="POST">
             Nombre de la mesa:<input name="mesa"><br><br>
             <input  type="submit" name="enviar" value="Abrir">

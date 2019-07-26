@@ -56,8 +56,5 @@ $sql = "UPDATE ventasactivas SET impresa='si' WHERE cuenta='$mesa' ";
 $sql2 = "UPDATE mesas SET impresa='si' WHERE mesa='$mesa' ";
 mysqli_query($conexion, $sql);
 mysqli_query($conexion, $sql2);
-echo '<script language="javascript">alert("imprimiendo..");window.location.href="indexM.php"</script>'; 
-$pdf->Output("D","Mesa:".$mesa."_".$fecha_actual.".pdf",true);  
-
-
+$pdf->Output("D","Mesa:".$mesa."_".$fecha_actual.".pdf",true); 
  ?>
