@@ -69,6 +69,7 @@ $(document).ready(function(){
                             if(mesas == "cambio"){
                                 alert("La mesa ha sido reasignada!");
                                 location.reload();
+                                
                             }else if(mesas == "!cambio") {
                                 alert("Ocurrio un error! \nRecarge la pagina he intente de nuevo \nVerifica que hallas escrito correctamente el nombre");
                             }

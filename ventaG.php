@@ -11,7 +11,7 @@
 <body>
 
     <div id="div"></div><!--div donde va el desgloce -->
-    <button id="btnFD">Finalizar Dia</button>
+    <button id="btnFD">Matar cuentas</button>
 <script>
 $(document).ready(function(){ 
     $.ajax({
@@ -37,8 +37,7 @@ $(document).ready(function(){
             $('#t').append('<tr><td> $'+t+'</td></tr>');
         }
     }); 
-    $('btnFD').on('click',function(){
-
+    $('#btnFD').on('click',function(){
     });
 });           
 </script>  

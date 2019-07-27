@@ -13,7 +13,7 @@
             <li><a href="ventaG.php">Venta</a></li>
             <li><a href="">Reportes</a></li>
             <li><a href="">Inventarios</a></li>
-            <li><a href="">Meseros</a></li>
+            <li><a href="meserosG.php">Meseros</a></li>
             <li class="izq"><a href="logout.php">Salir</a></li>
         </ul>   
     </nav>
