@@ -9,8 +9,8 @@
 <body>
     <nav>
         <ul id="menu">
-            <li class="izq"><a href="">Mesas</a></li>
-            <li><a href="">Venta</a></li>
+            <li class="izq"><a href="IndexG.php">Mesas</a></li>
+            <li><a href="ventaG.php">Venta</a></li>
             <li><a href="">Reportes</a></li>
             <li><a href="">Inventarios</a></li>
             <li><a href="">Meseros</a></li>

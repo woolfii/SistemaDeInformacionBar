@@ -53,7 +53,7 @@ $(document).ready(function(){
             });
             $('.btnI').on('click',function(){
                 var mesa = this.id;
-                window.location.href = "ImprimirMesa.php?mesa=" + mesa;
+                window.location.href = "ImprimirMesaG.php?mesa=" + mesa;
             });
             $('.btnC').on('click',function(){
                 var mesa = this.id;
@@ -70,10 +70,10 @@ $(document).ready(function(){
                                 alert("La mesa ha sido reasignada!");
                                 location.reload();
                             }else if(mesas == "!cambio") {
-                                alert("Ocurrio un error! \n Recarge la pagina he intente de nuevo ");
+                                alert("Ocurrio un error! \nRecarge la pagina he intente de nuevo \nVerifica que hallas escrito correctamente el nombre");
                             }
                             else if(mesas == "!mesero") {
-                                alert("Ocurrio un error! \nAsegurate que el mesero este registrado");
+                                alert("Ocurrio un error! \nAsegurate que el mesero este registrado \nVerifica que hallas escrito correctamente el nombre");
                             }
                         } 
                     });
