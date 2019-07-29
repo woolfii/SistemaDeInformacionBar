@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="EstiloIndexG.css">
+    <link rel="stylesheet" href="EstilosMeserosG.css">
     <title>Bienvenido</title>
     <?php
     include("menuG.php");
@@ -21,7 +21,7 @@
     <div id="myModalN" class="modal"><!--formulario modal para cambiar nombre -->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo nombre:<input id="nn"><br><br>
+        Nuevo nombre:<input id="nn" autofocus ><br><br>
         <button id="aceptaCN">Aceptar</button>
       </div>
     </div>
@@ -29,7 +29,7 @@
     <div id="myModalP" class="modal"><!--formulario modal para cambiar pin-->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo PIN:<input id="np"><br><br>
+        Nuevo PIN:<input id="np" autofocus ><br><br>
         <button id="aceptaCP">Aceptar</button>
       </div>
     </div>
@@ -37,8 +37,8 @@
     <div id="myModalAM" class="modal"><!--formulario modal para agregar mesero-->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nombre:<input id="nm"><br><br>
-        PIN:<input id="pm"><br><br>
+        Nombre:<input id="nm" autofocus ><br><br>
+        PIN:<input id="pm"  ><br><br>
         <button id="aceptaAM">Aceptar</button>
       </div>
     </div>
@@ -75,7 +75,7 @@ $(document).ready(function(){
                         success:function(exito) {  
                             if(exito == "si") {
                                 alert("El usuario ha sido registrado exitosamente!");
-                                document.getElementById('myModalAM').style.display = "none";
+                                location.reload();
                             }else if(exito == "no") {
                                 alert("El usuario no ha podido ser registrado!");          
                             }
@@ -137,7 +137,6 @@ $(document).ready(function(){
                             console.log(act);
                             if(act == "actualizo") {
                                 alert("Se actualizo el nombre exitosamente!");
-                                document.getElementById('myModalN').style.display = "none";
                                 location.reload();
                             }else if(act == "!actualizo") {
                                 alert("No se ha podido cambiar el nombre!");

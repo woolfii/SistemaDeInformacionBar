@@ -1,9 +1,9 @@
 <?php
 include("conexion.php");
-$mesero = $_POST['mesero'];
-$mesero =  substr ($mesero,0, strlen($mesero) - 1);
+$producto = $_POST['producto'];
+$producto =  substr ($producto,0, strlen($producto) - 1);
 
-$eliminar = "DELETE FROM usuarios WHERE nombre='$mesero'";
+$eliminar = "DELETE FROM productos WHERE nombre='$producto'";
 $elimino = mysqli_query($conexion, $eliminar);
 if( $elimino == true ) {
     echo json_encode("si");
