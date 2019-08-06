@@ -117,7 +117,6 @@ $(document).ready(function(){
                     var cantidad = document.getElementById('cantmod2').value;
                     var precio = document.getElementById('precmod2').value;
                     var categoria = document.getElementById('selected2').value;
-                    console.log(prod);
                     $.ajax({
                         type:"POST",
                         url:"SetProd.php",

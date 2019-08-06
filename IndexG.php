@@ -8,21 +8,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="EstiloIndexG.css">
+    <link rel="stylesheet" href="estilos/EstiloIndexG.css">
     <title>Bienvenido</title>
     <?php
     include("menuG.php");
     ?>
 </head>
 <body>
-
-    <div id="div"></div><!--div donde va el desgloce -->
+<table>
+   <div id="div"></div><!--div donde va el desgloce --> 
+</table>
+    
 
     <div id="myModal" class="modal"><!--formulario modal para cambiar mesero -->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo mesero:<input id="mes"><br><br>
-        <button id="aceptaC">Aceptar</button>
+        <div id="conte">
+           Nuevo mesero:<br><input id="mes" autofocus><br><br>
+            <button id="aceptaC">Aceptar</button> 
+        </div>
+        
       </div>
     </div>
 
@@ -35,15 +40,15 @@ $(document).ready(function(){
         success:function(mesas) {
             var i=0;
             if(i==0) {//si ya esta impresa
-                    $('#div').append('<th>Cuenta</th> <th>Mesero</th> <th>Desgloce</th> <th>Imprimir</th> <th>Re-asignar</th>');
+                    $('#div').append('<tr id="trm"> <th>Cuenta</th> <th>Mesero</th> <th>Desgloce</th>  <th>Reasignar</th>  <th>Imprimir</th> </tr>');
                     i=1;
                 }
             $.each(mesas, function(i, item) {
                 if(item[2]=="si") {
-                    $('#div').append('<tr class="i"> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'i" class="btnI">Imprimir</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> </tr>');
+                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> <td class="i"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td> </tr>');
                 }
                 else {
-                    $('#div').append('<tr class="n"> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'i" class="btnI">Imprimir</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> </tr>');
+                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> <td class="n"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td>  </tr>');
                 }
             });
             $('.btnD').on('click',function(){

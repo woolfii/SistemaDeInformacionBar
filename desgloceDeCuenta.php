@@ -14,21 +14,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cuenta<?php echo $mesa; ?></title>
+    <link rel="stylesheet" href="Estilos/DesgloceDeCuenta.css">
  </head>
  <body>
     <table>
         <tr>
-            <td> Producto </td>
-            <td> Precio </td>
+            <td class="tdm"> Producto </td>
+            <td class="tdm"> Precio </td>
         </tr>
         <tr>
             <td > <div id="productos"></div> </td>
             <td > <div id="precios"></div> </td>  
         </tr>
     </table>
-    <button onclick="window.location = 'indexM.php'">volver</button>
+    <div id="total"></div>
+    <button onclick="window.location = 'indexM.php'">Volver</button>
 
-    <script>
+<script>
     var mesero = '<?php echo $misero ?>';
     var mesa = '<?php echo $mesa ?>';
     $(document).ready(function(){
@@ -50,11 +52,10 @@
                         }
                         
                     })
-                    $('#productos').append('<tr><th>Total: </th></tr>');  
-                    $('#precios').append('<tr><th> $'+total +'</th></tr>');
+                    $('#total ').append('<tr ><td>Total: $'+total +'</td></tr>');
                 }
         });        
     });
-    </script>
- </body>
- </html>
+</script>
+</body>
+</html>

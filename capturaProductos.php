@@ -12,18 +12,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="capturaProductos.css">
+    <link rel="stylesheet" href="Estilos/capturaProductos.css">
     <title>Captura productos</title>
 
-    <style>
-        #BEP{
-            display:none;
-            }
-    </style>
 </head>
 <body>
     <table id="tabla">
-        <tr>
+        <tr id="trp">
             <th>Productos</th>
             <th> <?php 
             $sql="SELECT * from categorias";
@@ -40,14 +35,13 @@
         </tr>
         <tr>
             <th ><div id="PE"></div><button id="BEP">Eliminar producto</button></th>
-            <th >
-                <div id="PxC"></div>
-                <button id="BTNa">ACEPTAR</button>
-                <button id="BTNc" onclick="window.location = 'indexM.php'">CANCELAR</button>
-            </th>
+            <th ><div id="PxC"></div></th>
         </tr>
     </table>
-    
+     <div id="butons">
+        <button id="BTNa">ACEPTAR</button>
+        <button id="BTNc" onclick="window.location = 'indexM.php'">CANCELAR</button>
+    </div>    
 <script>
     var mesero = '<?php echo $misero ?>';
     var mesa = '<?php echo $mesa ?>';
@@ -70,7 +64,7 @@
                         $('.productoPresionado').on('click',function(){
                             var valor = this.id;
                             iCnt = iCnt + 1;                       
-                            $('#PE').append('<tr id=tb' + iCnt + '><th>'+ valor +'</th></tr>');
+                            $('#PE').append('<tr  id=tb' + iCnt + '><th class="product">'+ valor +'</th></tr>');
                             document.getElementById("BEP").style.display = "inline";
                             productos.push(valor);
                         });

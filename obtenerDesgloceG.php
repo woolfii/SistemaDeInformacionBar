@@ -1,8 +1,6 @@
 <?php 
     include("conexion.php");
-    $datos = $_POST["datos"];
-    $datosd = json_decode($datos);
-    $mesa = $datosd->mesa;
+    $mesa = $_POST["mesa"];
     $productos = array();
     $query = $conexion->query("SELECT producto FROM ventasactivas WHERE cuenta='".$mesa."' ");
     $resultado = $query->fetch_all();

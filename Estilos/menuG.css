@@ -5,9 +5,9 @@
 }
 #menu{
     margin-top:0px;
-    padding: 15px;
-    padding-bottom:20px;
-    background-color:rgb(116, 76, 25) ; 
+    padding: 10px;
+    padding-bottom:15px;
+    background-color:rgb(4, 0, 44); 
 }
 nav ul {
     overflow:hidden;
@@ -29,8 +29,8 @@ li{
 
 a{
     text-decoration: none;
-    color:rgb(46, 26, 1);
+    color:white;
 }
 a:hover{
-    color:#E7C292;
+    color:rgb(19, 139, 238);
 }

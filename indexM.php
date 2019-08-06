@@ -1,6 +1,11 @@
 <?php 
-    $conexion = mysqli_connect('localhost','root','','bar');
+    include("conexion.php");
     session_start();
+    if(isset($_SESSION['u_usuario'])){
+    }
+    else{
+      header("location: signup.html");
+    }
     $misero = $_SESSION['u_usuario'];
  ?>
 <!DOCTYPE html>
@@ -8,59 +13,60 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="EstilosModalAbrirMesa.css">
+    <link rel="stylesheet" href="Estilos/IndexM.css">
   </head>
   <body>
-    <table id="tabla">
-      <tr>
-        <th>Mesa</th>
-        <th>Capturar</th> 
-        <th>ver</th>
-        <th>cobrar</th>
-      </tr>
-      <?php //ciclo while con el cual se crea una fila por cada mesa encontrada que coincida con el
-        $sql = "SELECT * from mesas WHERE usuario = '$misero' AND impresa='no' ";
-        $result = mysqli_query($conexion,$sql);
-        while($mostrar=mysqli_fetch_array($result)){
-        ?>
-      <tr>
-        <td> <?php echo $mostrar['mesa'] ?> </td>
-        <td> <button class="btnPedido" id="<?php echo $mostrar['mesa'] ?>1">pedido</button> </td>
-        <td> <button class="btnDesgloce" id="<?php echo $mostrar['mesa'] ?>2">desgloce de cuenta</button> </td>
-        <td> <button class="btnImprimir" id="<?php echo $mostrar['mesa'] ?>3">imprimir cuenta</button> </td>
-      </tr>
-        <?php 
-        }
-      ?>
-    </table><br>
-    <button class="myBtnclass" onclick="window.location = 'logout.php'">Salir</button>        
-    <button class="myBtnclass" id="myBtn">Abrir Mesa</button>
+    <div id="div"></div> 
+    <div id="botones">
+      <button class="myBtnclass" id="myBtn" >Abrir Mesa</button> 
+      <button class="myBtnclass" id="myBtn2" onclick="window.location = 'logout.php'">Salir</button>        
+    </div>
 
 
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
         <form action="guardarMesa.php" method="POST">
-            Nombre de la mesa:<input name="mesa"><br><br>
-            <input  type="submit" name="enviar" value="Abrir">
+            <p>Nombre de la mesa:</p><input name="mesa" autofocus><br><br>
+            <input  id="btnX" type="submit" name="enviar" value="Abrir">
         </form>  
       </div>
-    </div>
+    
 
     <script>
       $(document).ready(function(){
-        $('.btnPedido').on('click',function(){
-          var mesa = this.id;
-          window.location.href = "capturaProductos.php?mesa=" + mesa;
-        });
-        $('.btnDesgloce').on('click',function(){
-          var mesa = this.id;
-          window.location.href = "DesgloceDeCuenta.php?mesa=" + mesa;
-        });
-        $('.btnImprimir').on('click',function(){
-          var mesa = this.id;
-          window.location.href = "ImprimirMesa.php?mesa=" + mesa;
-        });
+        var mesero = '<?php echo $misero; ?>';
+        $.ajax({
+          type:"POST",
+          url:"GetMesas.php",
+          dataType:"json",
+          data:{mesero,mesero},
+          success:function(data) { 
+            var i=0;
+            if(i==0) {//setear encabezado
+              $('#div').append('<tr id="trp"> <th>Mesa</th> <th>Capturar</th> <th>Ver</th> <th>Cobrar</th>  </tr>');
+              i=1;
+            }
+            $.each(data, function(i, item) {
+              $('#div').append('<tr id="'+item+'"> <td>'+item+'</td> <td><button class="btnPedido" id="'+item+'1">pedido</button></td> <td><button class="btnDesgloce" id="'+item+'2">Desglozar</button></td> <td><button class="btnImprimir" id="'+item+'3">Imprimir</button></td> </tr>');
+            })
+            $('.btnPedido').on('click',function(){
+              var mesa = this.id;
+              window.location.href = "capturaProductos.php?mesa=" + mesa;
+            });
+            $('.btnDesgloce').on('click',function(){
+              var mesa = this.id;
+              window.location.href = "DesgloceDeCuenta.php?mesa=" + mesa;
+            });
+            $('.btnImprimir').on('click',function(){
+              var mesa = this.id;
+              var id = mesa.slice(0, -1);
+              window.location.href = "ImprimirMesa.php?mesa=" + mesa;
+              $('#'+id+'').remove();
+            });
+          }
+        }); 
+        
       });
 
       var modal = document.getElementById("myModal");

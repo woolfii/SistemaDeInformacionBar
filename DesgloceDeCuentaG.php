@@ -11,6 +11,7 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="estilos/desgloceDeCuentaG.css">
      <title>Document</title>
  </head>
  <body>
@@ -28,15 +29,14 @@
  <script>
     var mesa = '<?php echo $mesa ?>';
     $(document).ready(function(){
-        var dat = {mesa:mesa};
-        var obj = JSON.stringify(dat);
         var total = 0; 
         $.ajax({
                 type:'POST',
                 url:'obtenerDesgloceG.php',
                 dataType: "json",
-                data:{datos:obj},
+                data:{mesa},
                 success:function(propre){
+                    console.log(propre);
                     $.each(propre, function(i, item) {
                         if(i%2 == 0 ){
                             $('#productos').append('<tr><td>'+item +'</td></tr>');   

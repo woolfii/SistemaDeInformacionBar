@@ -29,7 +29,7 @@
     <div id="myModalP" class="modal"><!--formulario modal para cambiar pin-->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo PIN:<input id="np" autofocus ><br><br>
+        Nuevo PIN:<input id="np" type="password" autofocus ><br><br>
         <button id="aceptaCP">Aceptar</button>
       </div>
     </div>
@@ -38,7 +38,7 @@
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
         Nombre:<input id="nm" autofocus ><br><br>
-        PIN:<input id="pm"  ><br><br>
+        PIN:<input id="pm" type="password" ><br><br>
         <button id="aceptaAM">Aceptar</button>
       </div>
     </div>
@@ -77,7 +77,7 @@ $(document).ready(function(){
                                 alert("El usuario ha sido registrado exitosamente!");
                                 location.reload();
                             }else if(exito == "no") {
-                                alert("El usuario no ha podido ser registrado!");          
+                                alert("El usuario no ha podido ser registrado! \n Quizas el nombre ya ha sido ocupado!");          
                             }
                         }
                     });  
@@ -139,7 +139,7 @@ $(document).ready(function(){
                                 alert("Se actualizo el nombre exitosamente!");
                                 location.reload();
                             }else if(act == "!actualizo") {
-                                alert("No se ha podido cambiar el nombre!");
+                                alert("No se ha podido cambiar el nombre! \nQuizas el nombre ya ha sido ocupado!");
                             }
                         }
                     });                     

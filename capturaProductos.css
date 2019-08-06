@@ -1,9 +1,0 @@
-table{
-    width:100%;
-    border:solid;
-    border-collapse: collapse;
-}
-td, th{
-    text-align: left;
-    border:solid
-}

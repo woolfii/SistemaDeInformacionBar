@@ -1,0 +1,74 @@
+#BEP{
+    display:none;
+    background-color:rgb(4, 0, 44);
+    color:white;
+    padding:10px;
+    border-radius: 7px;
+    border-color:white;
+    margin-top:15px;
+}
+#BEP:hover{
+    color:red;
+}
+table{
+    background-color: whitesmoke;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:15px;
+}
+#trp{
+    background-color: rgb(4, 0, 44);
+    color:white;
+}
+td,th{
+    border-width:thin ;
+    border-color:white;
+    padding:5px;
+    text-align: left;
+}
+#PxC{
+    display: inline-block;
+    vertical-align: top;
+}
+#butons{
+    margin-top: 5px;
+    float:right;
+  }
+#BTNa,#BTNc{
+    background-color:rgba(4, 0, 44, .95);
+    color:white;
+    padding:10px;
+    border-radius: 7px;
+    border-color:white;
+  }
+  #BTNa:hover,#BTNc:hover{
+    color:rgb(19, 139, 238);
+  }
+.getCat{
+    background-color:transparent;
+    padding:10px;
+    margin:0;
+    color:white;
+    border:0;
+  }
+.getCat:hover{
+    background-color:whitesmoke;
+    color:rgb(4, 0, 44);
+  }
+.productoPresionado{
+    background-color:transparent;
+    padding:10px;
+    color:rgb(4, 0, 44);
+    border-color:rgb(7, 1, 71);
+    border-radius: 5px;
+}
+.productoPresionado:hover{
+    background-color:rgb(4, 0, 44);
+    color:white;
+}
+.product{
+    color:rgb(8, 1, 87);
+    border-bottom:solid;
+    border-bottom-color:rgb(8, 1, 87);
+}

@@ -1,0 +1,93 @@
+body {background-color:whitesmoke }
+.i{
+    background-color:red;
+}
+.n{
+    background-color:green;
+}
+th{
+  width: 50%;
+  padding:10px;
+  text-align:left;
+  background-color:rgb(4, 0, 44);
+  color:white;
+}
+td{
+  background-color:white;
+  color:rgb(4, 0, 44);
+  padding:10px;
+}
+td:hover{
+  color:rgb(19, 139, 238);
+}
+.btnI,.btnD,.btnC{
+  background-color: transparent;
+  width: 100%; 
+  height:100%;
+}
+.btnI:hover,.btnD:hover,.btnC:hover{
+  color:rgb(19, 139, 238);
+}
+#conte{
+  text-align: center;
+  color:white;
+  font-size: 25px;
+}
+#mes{
+  width: 60%;
+  height: 20px;
+  margin-top:7px;
+}
+#div{ 
+  background-color: whitesmoke;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:15px;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.473); 
+}
+.modal-content {
+  background-color: rgba(4, 0, 44, .95);
+  margin: auto;
+  padding: 20px;
+  width: 30%;
+  border-radius: 20px;
+  border:0;
+}
+#aceptaC{
+  margin-top: 5px;
+  background-color:rgba(4, 0, 44, .95);
+  color:white;
+  padding:10px;
+  border:solid;
+  border-width:thin ;
+  border-radius: 7px;
+  border-color:white;
+}#aceptaC:hover{
+  background-color:white;
+  color:rgba(4, 0, 44, .95);
+}

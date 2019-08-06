@@ -1,0 +1,43 @@
+
+body{
+    background-color:whitesmoke;
+}
+#h2{
+    background-color:rgb(4, 0, 44);
+    color:white;
+    padding:15px;
+    text-align:center;
+    border-top:solid;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+}
+.but{
+    margin-top: 5px;
+    background-color:rgba(4, 0, 44, .95);
+    color:white;
+    padding:10px;
+    border-radius: 7px;
+    border-color:white;
+}
+.but:hover{
+    color:rgb(19, 139, 238);
+}
+#fondo2{
+    background-color: white;
+    border-bottom:solid;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+#cont{
+    padding:10px;
+    text-align: center;
+}
+input{
+    width: 50%;
+}
