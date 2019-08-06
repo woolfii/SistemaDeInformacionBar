@@ -1,24 +1,28 @@
-table{
+body{
     background-color: whitesmoke;
+}
+table{
+    background-color: white;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-top:15px;
 }
-.tdm{
+th{
+    font-size: 20px;
     background-color: rgb(4, 0, 44);
     color:white;
 }
 #total{
     background-color: rgb(4, 0, 44);
     color:white;
-    margin-left:72%;
+    margin-left:65%;
     
 }
 td,th{
     border-width:	thin ;
     border-color:white;
-    padding:5px;
+    padding-top:5px;
     text-align: left;
 }
 button{

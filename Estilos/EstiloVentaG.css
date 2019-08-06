@@ -1,6 +1,47 @@
+body{
+    background-color: whitesmoke;
+} 
 th{
-    background-color:#3333ff;
+    font-size: 20px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+    text-align:left;
+    background-color:rgb(4, 0, 44);
+    color:white;
 }
 td{
-    background-color:#e6e6ff;
+    background-color:white;
+    color:rgb(4, 0, 44);
+    padding:10px;
+    font-size: 20px;
+}
+#div{ 
+    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    margin:15px;
+    margin-bottom: 0px;
+}
+#t{
+    padding-right: 300px;
+}
+#total{
+    float: right;
+    padding-right: 270px;
+    
+}
+#btnFD{
+    font-size: 15px;
+    margin-top: 5px;
+    margin-left:15px;
+    background-color:rgba(4, 0, 44, .95);
+    color:white;
+    padding:10px;
+    border-radius: 7px;
+    border-color:white;
+}
+#btnFD:hover{
+    color:rgb(19, 139, 238);
 }

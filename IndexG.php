@@ -24,7 +24,7 @@
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
         <div id="conte">
-           Nuevo mesero:<br><input id="mes" autofocus><br><br>
+           Nuevo mesero:<br><input id="mes" autofocus><br>
             <button id="aceptaC">Aceptar</button> 
         </div>
         
@@ -45,10 +45,10 @@ $(document).ready(function(){
                 }
             $.each(mesas, function(i, item) {
                 if(item[2]=="si") {
-                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> <td class="i"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td> </tr>');
+                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Mesero</button></td> <td class="i"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td> </tr>');
                 }
                 else {
-                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Cambiar</button></td> <td class="n"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td>  </tr>');
+                    $('#div').append('<tr> <td>'+item[0]+'</td> <td>'+item[1]+'</td> <td><button id="'+item[0]+'d" class="btnD">Desglozar</button></td> <td><button id="'+item[0]+'c" class="btnC">Mesero</button></td> <td class="n"><button id="'+item[0]+'i" class="btnI">Imprimir</button></td>  </tr>');
                 }
             });
             $('.btnD').on('click',function(){

@@ -8,29 +8,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenido</title>
     <?php include("menuG.php");?>
-    <link rel="stylesheet" href="EstilosInventario.css">
+    <link rel="stylesheet" href="estilos/EstilosInventario.css">
 </head>
 <body>
 <div id="div"></div><!--div que lista prouctos-->
 
-<div id="myModal" class="modal"><!--formulario modal para modificar nombre de producto-->
+<div id="myModal" class="modal"><!--formulario modal para agregar producto !-->
   <div class="modal-content">
-    <span class="close">&times;</span><br><br>
-    Producto:<input id="prodmod" autofocus ><br><br>
-    Cantidad:<input type="number" id="cantmod" ><br><br>
-    Precio:<input type="number" id="precmod"  ><br><br>
-    catego:<select id="selected"></select>  <br><br>
-    <button id="aceptamod">Aceptar</button>
+    <span class="close">&times;</span><br><br><br>
+    <div id="conte">
+        Producto:<br><input id="prodmod" autofocus ><br><br>
+        Cantidad:<br><input type="number" id="cantmod" ><br><br>
+        Precio:<br><input type="number" id="precmod"  ><br><br>
+        Categoria:<select id="selected"></select>  <br><br>
+        <button class="btnMod" id="aceptamod">Aceptar</button>
+    </div>
   </div>
 </div>
+
 <div id="myModal2" class="modal"><!--formulario modal para modificar nombre de producto-->
   <div class="modal-content">
-    <span class="close">&times;</span><br><br>
-    Producto:<input id="prodmod2" autofocus ><br><br>
-    Cantidad:<input type="number" id="cantmod2" ><br><br>
-    Precio:<input type="number" id="precmod2"  ><br><br>
-    catego:<select id="selected2"></select>  <br><br>
-    <button id="aceptamod2">Aceptar</button>
+    <span class="close">&times;</span><br><br><br>
+    <div id="conte">
+        Producto:<br><input id="prodmod2" autofocus ><br><br>
+        Cantidad:<br><input type="number" id="cantmod2" ><br><br>
+        Precio:<br><input type="number" id="precmod2"  ><br><br>
+        Categoria:<select id="selected2"></select>  <br><br>
+        <button class="btnMod" id="aceptamod2">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<div id="myModal3" class="modal"><!--formulario modal para modificar nombre de producto-->
+  <div class="modal-content">
+    <span class="close">&times;</span><br><br><br>
+    <div id="conte">
+        Categoria:<br><input id="cati3" autofocus ><br><br>
+        <button class="btnMod" id="aceptamod3">Aceptar</button>
+    </div>
   </div>
 </div>
 
@@ -43,24 +58,19 @@ $(document).ready(function(){
         success:function(data) {  
             var i=0;
             if(i==0) {//setear encabezado
-                $('#div').append('<button id="agp">Agregar Producto</button>');
-                $('#div').append('<tr id="trp"> <th id="p">Producto</th> <th id="c">Cantidad</th> <th id="P">Precio</th> <th id="C">Categoria</th> <th id="e">Eliminar</th>  <th id="m">Modificar</th></tr>');
+                $('#div').append('<button id="agp">Agregar producto</button><button id="agc">Agregar categoria</button>');
+                $('#div').append('<tr id="trp"> <th >Producto</th> <th>Precio</th> <th>Categoria</th> <th >Eliminar</th>  <th >Modificar</th> <th>Cantidad</th></tr>');
                 i=1;
             }
             $.each(data, function(i, item) {//crear tabla
                 var cantidad = parseInt(item[1])
-                $('#p').append('<tr><td>'+item[0]+' </td></tr>');
                 if(cantidad<20){
-                    $('#c').append('<tr class="urg"><td >'+item[1]+' </td></tr>');   
+                    $('#div').append('<tr > <td>'+item[0]+' </td> <td>$'+item[2]+'</td> <td>'+item[3]+' </td> <td><button class="btnE" id="'+item[0]+'e" >Borrar</button></td> <td> <button class="btnM" id="'+item[0]+'m" > Modificar </button> </td>  <td class="urg" >'+item[1]+'</td>  </tr>');   
                 }else if(cantidad<70 && cantidad>20) {
-                    $('#c').append('<tr class="casi_urg"><td>'+item[1]+' </td></tr>');   
+                    $('#div').append('<tr > <td>'+item[0]+' </td> <td>$'+item[2]+'</td> <td>'+item[3]+' </td> <td><button class="btnE" id="'+item[0]+'e" >Borrar</button></td> <td> <button class="btnM" id="'+item[0]+'m" > Modificar </button> </td>  <td class="casi_urg" >'+item[1]+'</td>  </tr>'); 
                 }else{
-                    $('#c').append('<tr class="bien"><td>'+item[1]+' </td></tr>');   
+                    $('#div').append('<tr > <td>'+item[0]+' </td> <td>$'+item[2]+'</td> <td>'+item[3]+' </td> <td><button class="btnE" id="'+item[0]+'e" >Borrar</button></td> <td> <button class="btnM" id="'+item[0]+'m" > Modificar </button> </td>  <td class="bien" >'+item[1]+'</td>  </tr>'); 
                 }
-                $('#P').append('<tr><td>'+item[2]+' </td></tr>');
-                $('#C').append('<tr><td>'+item[3]+' </td></tr>');
-                $('#e').append('<tr><td> <button class="btnE" id="'+item[0]+'e" > Borrar </button> </td></tr>');
-                $('#m').append('<tr><td> <button class="btnM" id="'+item[0]+'m" > Modificar </button> </td></tr>');
             });
             $.ajax({//se crean las ocpiones de categorias dinamicamente
                 type:"POST",
@@ -91,6 +101,26 @@ $(document).ready(function(){
                                 location.reload();
                             }else if(exito == "no") {
                                 alert("El producto no ha podido ser registrado!\nAsegurate de haber llenado todos los campos");          
+                            }
+                        }
+                    });  
+                }); 
+            });
+            $('#agc').on('click',function(){//boton nuevo producto
+                document.getElementById('myModal3').style.display = "block"; 
+                $('#aceptamod3').on('click',function(){
+                    var categoria = document.getElementById('cati3').value;
+                    $.ajax({
+                        type:"POST",
+                        url:"SetCat.php",
+                        dataType:"json",
+                        data:{categoria:categoria},
+                        success:function(exito) {  
+                            if(exito == "si") {
+                                alert("La nueva categoria ha sido creada!");
+                                location.reload();
+                            }else if(exito == "no") {
+                                alert("La categoria ya existe!");          
                             }
                         }
                     });  
@@ -131,8 +161,7 @@ $(document).ready(function(){
                             }
                         }
                     });  
-                }); 
-
+                });
             });
             $('.btnE').on('click',function(){//boton eliminar producto
                 var producto = this.id;
@@ -160,11 +189,17 @@ $(document).ready(function(){
     var cerr = document.getElementsByClassName("close")[0];
     var modal2 = document.getElementById("myModal2");
     var cerr2 = document.getElementsByClassName("close")[1];
+    var modal3 = document.getElementById("myModal3");
+    var cerr3 = document.getElementsByClassName("close")[2];
+
     cerr.onclick = function() {
         modal.style.display = "none";
     }
     cerr2.onclick = function() {
         modal2.style.display = "none";
+    }
+    cerr3.onclick = function() {
+        modal3.style.display = "none";
     }
     window.onclick = function(event) {
         if (event.target == modal ) {
@@ -176,6 +211,12 @@ $(document).ready(function(){
             modal2.style.display = "none";
         }
     }
+    window.onclick = function(event) {
+        if (event.target == modal3 ) {
+            modal3.style.display = "none";
+        }
+    }
+
     </script>
 </body>
 </html>

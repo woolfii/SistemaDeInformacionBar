@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php include("menuG.php");?>
-    <link rel="stylesheet" href="EstiloVentaG.css">
+    <link rel="stylesheet" href="estilos/EstiloVentaG.css">
 </head>
 <body>
 
-    <div id="div"></div><!--div donde va el desgloce -->
+    <table>
+        <div id="div"></div><!--div donde va el desgloce --> 
+    </table>
+    <div id="total"></div>
     <button id="btnFD">Matar cuentas</button>
 <script>
 $(document).ready(function(){ 
@@ -21,20 +24,15 @@ $(document).ready(function(){
         success:function(info) {
             var i=0,t=0;
             if(i==0) {
-                $('#div').append('<tr class="trp"> <th id="c">Cuenta</th> <th id="t">Total</th> </tr>');
+                $('#div').append('<tr > <th class="trp" id="c">Cuenta</th> <th class="trp" id="t">Total</th> </tr>');
                 i=1;
             }
-            $.each(info, function(i, item) {
-                if(i % 2 == 0) {
-                    $('#c').append('<tr><td>'+item+'</td></tr>');
-                }
-                else {
-                    $('#t').append('<tr><td> $'+item+'</td></tr');
-                    t += item;
-                }
-            });
-            $('#c').append('<tr><td> Total: </td></tr>');
-            $('#t').append('<tr><td> $'+t+'</td></tr>');
+            for(var j=0;j<info.length;j++){
+                $('#div').append('<tr> <td>'+info[j]+'</td> <td>$'+info[(j+1)]+'</td></tr>');
+                t += info[(j+1)];
+                j++;
+            }
+            $('#total').append('<tr ><td>Total: $'+t +'</td></tr>');
         }
     }); 
     $('#btnFD').on('click',function(){

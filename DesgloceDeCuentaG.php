@@ -25,6 +25,7 @@
             <td > <div id="precios"></div> </td>  
         </tr>
     </table>
+    <div id="total"></div>
     <button onclick="window.location = 'indexG.php'">volver</button>
  <script>
     var mesa = '<?php echo $mesa ?>';
@@ -36,7 +37,6 @@
                 dataType: "json",
                 data:{mesa},
                 success:function(propre){
-                    console.log(propre);
                     $.each(propre, function(i, item) {
                         if(i%2 == 0 ){
                             $('#productos').append('<tr><td>'+item +'</td></tr>');   
@@ -46,8 +46,7 @@
                         }
                         
                     })
-                    $('#productos').append('<tr><th>Total: </th></tr>');  
-                    $('#precios').append('<tr><th> $'+total +'</th></tr>');
+                    $('#total').append('<tr ><td>Total: $'+total +'</td></tr>');
                 }
         });        
     });
