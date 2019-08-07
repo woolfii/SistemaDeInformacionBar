@@ -1,8 +1,8 @@
 <?php
 include("conexion.php");
 $mesero = $_POST['mesero'];
-$pin = $_POST['pin'];
-
+$contra = $_POST['pin'];
+$pin = password_hash($contra,PASSWORD_DEFAULT);
       
 $disponible = nombre_libre ($mesero, $conexion);
 

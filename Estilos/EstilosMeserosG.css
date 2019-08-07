@@ -1,29 +1,98 @@
-
-/* The Modal (background) */
+body{
+  background-color: whitesmoke;
+}
+#trp{
+  background-color: rgb(4, 0, 44);
+  color:white;
+}
+th{
+  padding:5px;
+  font-size:20px;
+  padding-right:140px;
+  text-align: left;
+  width: 100%;
+}
+td{
+  padding:5px;
+  font-size:20px;
+  width: 100%;
+  background-color: white;
+  color:rgb(4, 0, 44);
+}
+td:hover{
+  background-color: whitesmoke;
+}
+.changep,.changen{
+  background-color: whitesmoke;
+  text-align: left;
+  padding:5px;
+  height:100%;
+}
+.changep:hover,.changen:hover{
+  color:blue;
+}
+.eliminarm{
+  background-color: transparent;
+  text-align: left;
+  padding:5px;
+  width: 100%; 
+  height:100%;
+}
+.eliminarm:hover{
+  color:red;
+}
+#div{ 
+  background-color: whitesmoke;
+  margin-left: auto;
+  margin-right: auto;
+  margin:15px;
+  margin-bottom: 0px;
+}
+input, select{
+  height: 25px;
+  font-size:20px;
+  text-align:center;
+}
+#agm{
+  text-align: center;
+  background-color:rgb(4, 0, 44);
+  color:white;
+  border-radius: 7px;
+  border-color:white;
+  margin:10px;
+  padding:10px;
+  margin-left: 45%;
+}
+#agm:hover{
+  background-color:green;
+  color:white;
+}
+#conte{
+  text-align: center;
+  color:white;
+  font-size: 25px;
+}
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.473); 
 }
-
-/* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: rgba(4, 0, 44, .95);
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 30%;
+  border-radius: 20px;
+  border:0;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;
@@ -37,12 +106,18 @@
   text-decoration: none;
   cursor: pointer;
 }
-table{
-    width:100%;
-    border:solid;
-    border-collapse: collapse;
+.btnMod{
+  margin-top: 25px;
+  width: 30%;
+  background-color:white;
+  color:rgba(4, 0, 44, .95); 
+  padding:10px;
+  border:solid;
+  border-width:thin ;
+  border-radius: 7px;
+  border-color:white;
 }
-tr, th{
-    text-align: left;
-    border:solid
+.btnMod:hover{
+  background-color:rgba(4, 0, 44, .95);
+  color:white;
 }

@@ -202,17 +202,9 @@ $(document).ready(function(){
         modal3.style.display = "none";
     }
     window.onclick = function(event) {
-        if (event.target == modal ) {
+        if (event.target == modal  || event.target == modal2 || event.target == modal3) {
             modal.style.display = "none";
-        }
-    }
-    window.onclick = function(event) {
-        if (event.target == modal2 ) {
             modal2.style.display = "none";
-        }
-    }
-    window.onclick = function(event) {
-        if (event.target == modal3 ) {
             modal3.style.display = "none";
         }
     }

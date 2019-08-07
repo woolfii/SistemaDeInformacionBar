@@ -1,25 +1,22 @@
 <?php
 session_start();
 $usuario = $_POST['usuario'];
-$contrasenia = $_POST['contrasenia'];
+$contra= $_POST['contrasenia'];
 include("conexion.php");
 
-//verifica si hay usuario registrado y si la contrasena coincide.
-$proceso = $conexion->query("SELECT * FROM usuarios WHERE nombre='$usuario' AND pin='$contrasenia' AND rol=1 ");//patron
-  
-if($resultado = mysqli_fetch_array($proceso)){
+$query = $conexion->query("SELECT pin,rol FROM usuarios WHERE nombre='$usuario' ");
+$resultado = $query->fetch_assoc();
+if(password_verify ( $contra ,$resultado["pin"])){
 	$_SESSION['u_usuario'] = $usuario;
-	header("location: IndexG.php");
+	if($resultado["rol"]==1) {
+		header("location: IndexG.php");
+	}else if($resultado["rol"]==2) {
+		header("location: Indexm.php");
+	}
+	
 }
 else{	
-	$proceso2 = $conexion->query("SELECT * FROM usuarios WHERE nombre='$usuario' AND pin='$contrasenia' AND rol=2 ");//mesero
-    if($resultado2 = mysqli_fetch_array($proceso2)){
-	    $_SESSION['u_usuario'] = $usuario;
-	    header("location: indexM.php");
-    }
-    else{
-		header("location: signup.html");
-    }
+	header("location: signup.html");
 }
 
 

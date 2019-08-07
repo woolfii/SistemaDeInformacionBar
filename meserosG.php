@@ -21,25 +21,31 @@
     <div id="myModalN" class="modal"><!--formulario modal para cambiar nombre -->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo nombre:<input id="nn" autofocus ><br><br>
-        <button id="aceptaCN">Aceptar</button>
+        <div id="conte">
+            Nuevo nombre:<input id="nn" autofocus ><br><br>
+            <button class="btnMod" id="aceptaCN">Aceptar</button>
+        </div>
       </div>
     </div>
     
     <div id="myModalP" class="modal"><!--formulario modal para cambiar pin-->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nuevo PIN:<input id="np" type="password" autofocus ><br><br>
-        <button id="aceptaCP">Aceptar</button>
+        <div id="conte">
+            Nuevo PIN:<br><input id="np" type="password" autofocus ><br><br>
+            <button class="btnMod" id="aceptaCP">Aceptar</button>
+        </div>
       </div>
     </div>
 
     <div id="myModalAM" class="modal"><!--formulario modal para agregar mesero-->
       <div class="modal-content">
         <span class="close">&times;</span><br><br>
-        Nombre:<input id="nm" autofocus ><br><br>
-        PIN:<input id="pm" type="password" ><br><br>
-        <button id="aceptaAM">Aceptar</button>
+        <div id="conte">
+            Nombre:<br><input id="nm" autofocus ><br><br>
+            PIN:<br><input id="pm" type="password" ><br><br>
+            <button class="btnMod" id="aceptaAM">Aceptar</button>
+        </div>
       </div>
     </div>
 
@@ -53,15 +59,12 @@ $(document).ready(function(){
             var i=0;
             if(i==0) {//
                 $('#div').append('<button id="agm">Agregar Mesero</button>');
-                $('#div').append('<tr id="trp"> <th id="m">Mesero</th> <th id="c">Cambiar</th> <th id="e">Eliminar</th> </tr>');
+                $('#div').append('<tr id="trp"> <th >Mesero</th> <th >Cambiar</th> <th >Eliminar</th> </tr>');
                 i=1;
             }
             $.each(meseros, function(i, item) {
-                $('#m').append('<tr><td>'+item+'</td></tr>');
-                $('#c').append('<tr> <td><button class="changep" id="'+item+'p">PIN</button></td> <td><button class="changen" id="'+item+'n">Nombre</button></td> </tr>');
-                $("#e").append('<tr> <td><button class="eliminarm" id="'+item+'e">Borrar</button></td> </tr>')
+                $('#div').append('<tr><td>'+item+'</td> <td><button class="changep" id="'+item+'p">PIN</button> <button class="changen" id="'+item+'n">Nombre</button></td>  <td><button class="eliminarm" id="'+item+'e">Borrar</button></td> </tr>');
             });
-
             $('#agm').on('click',function(){//boton agregar mesero
                 document.getElementById('myModalAM').style.display = "block";
                 $('#aceptaAM').on('click',function(){

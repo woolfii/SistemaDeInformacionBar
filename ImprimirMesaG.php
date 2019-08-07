@@ -29,7 +29,7 @@ $pdf->Cell(40,10,'Fecha y Hora de impresion: ',0,0,'L');
 $pdf->Ln();
 $pdf->Cell(40,10,''.$fecha_actual.'',0,0,'L');
 $pdf->Ln();
-$pdf->SetFillColor(132,0,0);
+$pdf->SetFillColor(4, 0, 44);
 $pdf->SetTextColor(255);
 $pdf->Cell(40,10,"Producto",1,0 ,"L" ,true);
 $pdf->Cell(40,10,"Precio",1,0,"L" ,true);
