@@ -3,7 +3,7 @@ include("conexion.php");
 require('fpdf181/fpdf.php');
 session_start();
 date_default_timezone_set("America/Mexico_City");
-$fecha_actual = date('Y-m-d H:i:s');
+$fecha_actual = date('d-m-Y H:i:s');
 $mesero = $_SESSION['u_usuario'];
 $mesa= $_GET['mesa'];
 $mesa = substr ($mesa,0, strlen($mesa) - 1);//para eliminar el ultimo caracteres agregado en indexM.php
@@ -28,7 +28,7 @@ $pdf->Cell(40,10,'Fecha y Hora de impresion: ',0,0,'L');
 $pdf->Ln();
 $pdf->Cell(40,10,''.$fecha_actual.'',0,0,'L');
 $pdf->Ln();
-$pdf->SetFillColor(132,0,0);
+$pdf->SetFillColor(4, 0, 44);
 $pdf->SetTextColor(255);
 $pdf->Cell(40,10,"Producto",1,0 ,"L" ,true);
 $pdf->Cell(40,10,"Precio",1,0,"L" ,true);

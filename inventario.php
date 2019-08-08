@@ -134,10 +134,12 @@ $(document).ready(function(){
                     dataType:"json",
                     data:{prod:prod},
                     success:function(desgloce){
+                        console.log(desgloce);
                         $.each(desgloce, function(i, des) {
                             $("#prodmod2").val(des[0]);
                             $("#cantmod2").val(des[1]);
                             $("#precmod2").val(des[2]);
+                            $("#selected2").val(des[3]);
                         })   
                         document.getElementById('myModal2').style.display = "block";
                     }

@@ -10,7 +10,11 @@ $categoria= $_POST['categoria'];
 $disponible = nombre_libre($producto, $conexion);
 
 if($disponible > 0 || $cantidad == "" || $precio == "" || $categoria== ""|| $producto== "") {
-	echo json_encode("no");
+
+	$agregar = "UPDATE productos SET cantidad='$cantidad', precio='$precio', categoria='$categoria' WHERE nombre='$prod'";
+    mysqli_query($conexion, $agregar);
+	echo json_encode("si");
+
 }else if($disponible < 1){
 	$agregar = "UPDATE productos SET nombre='$producto',cantidad='$cantidad', precio='$precio', categoria='$categoria' WHERE nombre='$prod'";
     mysqli_query($conexion, $agregar);

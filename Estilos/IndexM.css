@@ -11,9 +11,10 @@
   color:white;
 }
 tr, th{
-  padding:10px;
+ padding:10px;
+ padding-right: 150px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   border:solid;
   border-width:	thin ;
   border-color:rgb(4, 0, 44);
@@ -22,10 +23,12 @@ tr, th{
 }
 td{
   padding:7px;
+  text-align: left;
   color:black;
   border:solid;
   border-width:	thin ;
   border-color:white;
+  
 
 }
 tr:hover {
@@ -106,6 +109,7 @@ p{
 
 .btnImprimir{
   width: 100%;
+  text-align: left;
   background-color:transparent;
   color:black;
   border:0;
@@ -113,10 +117,14 @@ p{
 .btnDesgloce{
   width: 100%;
   Height:100%;
+  text-align: left;
   margin:0;
   background-color:transparent;
   color:black;
   border:0;
+}
+.btnPedido{
+  text-align: left;
 }
 #button{
      margin:15px;

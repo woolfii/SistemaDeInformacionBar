@@ -36,6 +36,7 @@ $(document).ready(function(){
         }
     }); 
     $('#btnFD').on('click',function(){
+        location.href = "matarCuentas.php";
     });
 });           
 </script>  

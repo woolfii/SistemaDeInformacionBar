@@ -2,7 +2,7 @@
 include("conexion.php");
 require('fpdf181/fpdf.php');
 date_default_timezone_set("America/Mexico_City");
-$fecha_actual = date('Y-m-d H:i:s');
+$fecha_actual = date('d-m-Y H:i:s');
 $mesa= $_GET['mesa'];
 $mesa = substr ($mesa,0, strlen($mesa) - 1);//para eliminar el ultimo caracteres agregado en indexM.php
 $productos = array();
