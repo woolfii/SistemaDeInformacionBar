@@ -18,6 +18,13 @@ foreach($meseros as $mesero){
   <link rel="stylesheet" href="Estilos/VentaDelDia.css">
     <?php
     include("menuG.php");
+    session_start();
+			if(isset($_SESSION['u_usuario'])){
+			}
+			else{
+				header("location: signup.html");
+			}
+
     ?>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

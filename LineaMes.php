@@ -1,5 +1,12 @@
 <?php
 //vendedor del mes
+session_start();
+			if(isset($_SESSION['u_usuario'])){
+			}
+			else{
+				header("location: signup.html");
+			}
+
 include("conexion.php");
 $query = ("SELECT  venta,fecha FROM ventadeldia WHERE MONTH(fecha) = MONTH(CURDATE()) ORDER BY fecha");
 $res = $conexion->query($query);

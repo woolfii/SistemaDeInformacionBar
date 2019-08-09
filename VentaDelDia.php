@@ -1,5 +1,12 @@
 <?php
 include("conexion.php");
+session_start();
+			if(isset($_SESSION['u_usuario'])){
+			}
+			else{
+				header("location: signup.html");
+			}
+
 $query = $conexion->query("SELECT MAX(fecha) FROM ventas");
 $date = $query->fetch_assoc();
 $fecha_actual = $date["MAX(fecha)"];

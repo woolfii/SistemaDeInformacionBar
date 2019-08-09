@@ -1,6 +1,13 @@
 <?php
 //vendedor del mes
 include("conexion.php");
+session_start();
+			if(isset($_SESSION['u_usuario'])){
+			}
+			else{
+				header("location: signup.html");
+			}
+
 $query = $conexion->query("SELECT DISTINCT MONTH(fecha) FROM ventadeldia  ORDER BY fecha");
 $fechas = $query->fetch_all();
 $meses = array();

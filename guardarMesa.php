@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("conexion.php");
 $mesa= $_POST['mesa'];
 $user = $_SESSION['u_usuario'];

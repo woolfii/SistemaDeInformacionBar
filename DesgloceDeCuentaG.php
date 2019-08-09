@@ -1,8 +1,15 @@
 <?php 
     include("conexion.php");
-    session_start();
+
     $mesa= $_GET['mesa'];
     $mesa = substr ($mesa,0, strlen($mesa) - 1);//para eliminar el ultimo caracteres agregado en indexM.php
+    session_start();
+			if(isset($_SESSION['u_usuario'])){
+			}
+			else{
+				header("location: signup.html");
+			}
+
  ?>
  <!DOCTYPE html>
  <html lang="en">

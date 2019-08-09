@@ -3,6 +3,13 @@
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <?php
+    session_start();
+    if(isset($_SESSION['u_usuario'])){
+    }
+    else{
+      header("location: signup.html");
+    }
+
     include("menuG.php");
     ?>
     <link rel="stylesheet" href="estilos/Select.css">

@@ -7,7 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bienvenido</title>
-    <?php include("menuG.php");?>
+    <?php include("menuG.php");
+    session_start();
+    if(isset($_SESSION['u_usuario'])){
+    }
+    else{
+        header("location: signup.html");
+    }
+?>
     <link rel="stylesheet" href="estilos/EstilosInventario.css">
 </head>
 <body>

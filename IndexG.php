@@ -1,5 +1,11 @@
 <?php 
     session_start();
+    if(isset($_SESSION['u_usuario'])){
+    }
+    else{
+        header("location: signup.html");
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
