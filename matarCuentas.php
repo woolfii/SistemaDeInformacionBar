@@ -8,6 +8,7 @@ $MCT = array();
 $MTF = array();
 $total = 0;
 $ventaDelDia = 0;
+$ventaTotal = 0;
 
 foreach($meseros as $mesero) {//se crea array mesero cuenta total de la venta Activa
     $query2 = $conexion->query("SELECT DISTINCT cuenta FROM ventasactivas WHERE usuario = '$mesero[0]' ");
@@ -26,6 +27,7 @@ foreach($meseros as $mesero) {//se crea array mesero cuenta total de la venta Ac
             $total += $p;
         }       
         $ventaDelDia += $total;
+        $ventaTotal += $total;
         array_push($MCT,$total); 
         $total = 0;
  
@@ -49,9 +51,11 @@ for($i=0; $i<($j-1); $i++) {//se agrega a la tabla ventasdiarias el mesero,la cu
     mysqli_query($conexion, $agregar);
     $i = $i+1;
 }
+$agregar2 = $conexion->query("INSERT INTO ventadeldia(venta,fecha) VALUES('$ventaTotal','$fecha_actual')");
+mysqli_query($conexion, $agregar2);
 $vaciar = $conexion->query("TRUNCATE TABLE ventasactivas");
 mysqli_query($conexion, $vaciar);
 $vaciar2 = $conexion->query("TRUNCATE TABLE mesas");
 mysqli_query($conexion, $vaciar2);
-header('Location: aver.php');
+header('Location: ventaG.php');
 ?>

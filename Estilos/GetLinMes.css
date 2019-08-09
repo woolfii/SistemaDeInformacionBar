@@ -1,0 +1,13 @@
+#myBtn2{
+    background-color:rgba(4, 0, 44, .95);
+    color:white;
+    width: 180px;
+    height: 40px;
+    border-radius: 7px;
+    border-color:white;
+    margin:15px;
+    margin-left:40%;
+  }
+  #myBtn2:hover{
+    color:rgb(19, 139, 238);
+  }

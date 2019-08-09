@@ -1,14 +1,21 @@
 <?php
+//vendedor del mes
 include("conexion.php");
-$query = $conexion->query("SELECT MAX(fecha) FROM ventas");
-$date = $query->fetch_assoc();
-$fecha_actual = $date["MAX(fecha)"];
-$query4 = ("SELECT usuario,total FROM ventas WHERE fecha='$fecha_actual' ");
-$res = $conexion->query($query4);
+$query = $conexion->query("SELECT DISTINCT usuario FROM ventas");
+$meseros = $query->fetch_all();
+
+$MT = array();
+foreach($meseros as $mesero){
+    $query2 = $conexion->query("SELECT usuario,SUM(total) FROM ventas WHERE usuario ='$mesero[0]'");
+    $total = $query2->fetch_assoc();
+    array_push($MT,$total);
+}
+
+
 ?>
 <html>
-  <head>   
-     <link rel="stylesheet" href="Estilos/VentaDelDia.css">
+  <head>
+  <link rel="stylesheet" href="Estilos/VentaDelDia.css">
     <?php
     include("menuG.php");
     ?>
@@ -23,17 +30,17 @@ $res = $conexion->query($query4);
         data.addColumn('number', 'Venta');
         data.addRows([
         <?php
-        while($fila = $res->fetch_assoc()){
-            echo "['".$fila["usuario"]."',".$fila["total"]."],";
+        foreach($MT as $fila){
+            echo "['".$fila["usuario"]."',".$fila["SUM(total)"]."],";
         }
         ?>
         ]);
         
 
-        var options = {'title':'Venta Del Dia',
+        var options = {'title':'Vendedor del Mes',
                        'width':1100,
                        'height':600};
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>

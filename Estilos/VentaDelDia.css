@@ -1,0 +1,15 @@
+.btnMen{
+    margin-top: 15px;
+    margin-left:100px;
+    background-color:rgba(4, 0, 44, .95);
+    color:white;
+    padding:10px;
+    border:solid;
+    border-width:thin ;
+    border-radius: 7px;
+    border-color:white;
+}
+.btnMen:hover{
+    background-color:white;
+    color:rgba(4, 0, 44, .95); 
+    }

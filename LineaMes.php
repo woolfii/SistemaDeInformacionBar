@@ -1,14 +1,12 @@
 <?php
+//vendedor del mes
 include("conexion.php");
-$query = $conexion->query("SELECT MAX(fecha) FROM ventas");
-$date = $query->fetch_assoc();
-$fecha_actual = $date["MAX(fecha)"];
-$query4 = ("SELECT usuario,total FROM ventas WHERE fecha='$fecha_actual' ");
-$res = $conexion->query($query4);
+$query = ("SELECT  venta,fecha FROM ventadeldia WHERE MONTH(fecha) = MONTH(CURDATE()) ORDER BY fecha");
+$res = $conexion->query($query);
 ?>
 <html>
-  <head>   
-     <link rel="stylesheet" href="Estilos/VentaDelDia.css">
+  <head>
+  <link rel="stylesheet" href="Estilos/VentaDelDia.css">
     <?php
     include("menuG.php");
     ?>
@@ -18,22 +16,22 @@ $res = $conexion->query($query4);
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Mesero');
-        data.addColumn('number', 'Venta');
-        data.addRows([
-        <?php
-        while($fila = $res->fetch_assoc()){
-            echo "['".$fila["usuario"]."',".$fila["total"]."],";
-        }
-        ?>
+        var data = google.visualization.arrayToDataTable([
+          ['fecha', 'venta'],
+            <?php
+            while($fila = $res->fetch_assoc()){
+           echo "['".$fila["fecha"]."',".$fila["venta"]."],";
+            }
+            ?>
         ]);
-        
 
-        var options = {'title':'Venta Del Dia',
-                       'width':1100,
-                       'height':600};
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        var options = {
+          title: 'Venta diaria durante el mes',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
         chart.draw(data, options);
       }
     </script>
@@ -47,7 +45,6 @@ $res = $conexion->query($query4);
 		<button class="btnMen"  onclick="window.location = 'LineaYear.php'">Venta Mes|Ano</button>
 		<button class="btnMen"  onclick="window.location = 'Aver.php'">Venta Mesero|Mes</button>
 	</div>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+    <div id="curve_chart" style="width: 1100px; height: 500px"></div>
   </body>
 </html>
