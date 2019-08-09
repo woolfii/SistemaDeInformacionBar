@@ -1,14 +1,6 @@
-#div{
-    width:200px;
-    padding:10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:20px;
-    background-color:whitesmoke;
-}
+
 select{
-    width:100%;
-    background-color:whitesmoke;
+    background-color:transparent;
 }
 .btnMen{
     margin-top: 15px;

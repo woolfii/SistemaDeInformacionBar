@@ -38,8 +38,8 @@
 		<button class="btnMen"  onclick="window.location = 'VendedorDelMes.php'">Vendedor del mes </button>
 		<button class="btnMen"  onclick="window.location = 'LineaMes.php'">Venta Dia|Mes</button>
 		<button class="btnMen"  onclick="window.location = 'LineaYear.php'">Venta Mes|Ano</button>
-		<button class="btnMen"  onclick="window.location = 'Aver.php'">Venta Mesero|Mes</button>
+		<select class="btnMen"  id="selected"><option value="Mesero:">Mesero:</option></select>
 	</div>
-    <div id="div"><select id="selected"><option value="Mesero:">Mesero:</option></select></div>
+ 
   </body>
 </html>

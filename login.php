@@ -1,11 +1,15 @@
 <?php
 session_start();
-$usuario = $_POST['usuario'];
-$contra= $_POST['contrasenia'];
 include("conexion.php");
+$usuario = $_POST['usuario'];
+$usuario = $conexion->real_escape_string($usuario);
+$contra= $_POST['contrasenia'];
+
 
 $query = $conexion->query("SELECT pin,rol FROM usuarios WHERE nombre='$usuario' ");
-$resultado = $query->fetch_assoc();
+$resultado = $query->fetch_assoc();	
+
+
 if(password_verify ( $contra ,$resultado["pin"])){
 	$_SESSION['u_usuario'] = $usuario;
 	if($resultado["rol"]==1) {

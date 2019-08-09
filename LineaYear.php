@@ -41,7 +41,7 @@ foreach($fechas as $fecha){
         ]);
 
         var options = {
-          title: 'Venta diaria durante el mes',
+          title: 'Venta mensual durante el anio',
           legend: { position: 'bottom' }
         };
 

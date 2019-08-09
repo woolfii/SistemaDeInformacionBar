@@ -1,12 +1,13 @@
 <?php 
     include("conexion.php");
     session_start();
+    $misero = $_SESSION['u_usuario'];
     if(isset($_SESSION['u_usuario'])){
     }
     else{
       header("location: signup.html");
     }
-    $misero = $_SESSION['u_usuario'];
+    
  ?>
 <!DOCTYPE html>
 <html>
